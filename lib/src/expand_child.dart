@@ -106,10 +106,6 @@ class _ExpandChildState extends State<ExpandChild>
   void initState() {
     super.initState();
     
-    if(widget.isExpanded) {
-      _handleTap();
-    }
-
     // Initializing the animation controller with the [duration] parameter
     _controller = AnimationController(
       duration: widget.animationDuration,
@@ -119,6 +115,11 @@ class _ExpandChildState extends State<ExpandChild>
     // Initializing both animations, depending on the [_easeInCurve] curve
     _expandFactor = _controller.drive(_easeInCurve);
     _iconTurns = _controller.drive(_halfTurn.chain(_easeInCurve));
+    
+        if(widget.isExpanded) {
+      _handleTap();
+    }
+
   }
 
   @override
