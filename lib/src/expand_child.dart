@@ -56,6 +56,8 @@ class ExpandChild extends StatefulWidget {
 
   /// Method to override the [ExpandArrow] widget for expanding the content.
   final IndicatorBuilder? indicatorBuilder;
+  
+  final bool isExpanded;
 
   const ExpandChild({
     Key? key,
@@ -73,6 +75,7 @@ class ExpandChild extends StatefulWidget {
     this.hideArrowOnExpanded = false,
     this.expandDirection = Axis.vertical,
     this.indicatorBuilder,
+    this.isExpanded = false,
   }) : super(key: key);
 
   @override
@@ -102,6 +105,8 @@ class _ExpandChildState extends State<ExpandChild>
   @override
   void initState() {
     super.initState();
+    
+    _isExpanded = widget.isExpanded;
 
     // Initializing the animation controller with the [duration] parameter
     _controller = AnimationController(
