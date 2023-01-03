@@ -106,7 +106,9 @@ class _ExpandChildState extends State<ExpandChild>
   void initState() {
     super.initState();
     
+setState((){
     _isExpanded = widget.isExpanded;
+});
 
     // Initializing the animation controller with the [duration] parameter
     _controller = AnimationController(
